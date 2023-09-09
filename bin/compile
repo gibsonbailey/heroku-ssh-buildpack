@@ -1,6 +1,9 @@
 #!/bin/sh
 
 BUILD_DIR=$1
+ENV_DIR=$3
+
+SSH_KEY="$(cat $ENV_DIR/SSH_KEY 2> /dev/null)"
 
 if [ -z "$SSH_KEY" ]; then
   echo "No SSH_KEY environment variable set, skipping."
