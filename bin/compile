@@ -1,0 +1,13 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+
+if [ -z "$SSH_KEY" ]; then
+  echo "No SSH_KEY environment variable set, skipping."
+  exit 0
+fi
+
+echo "Creating .ssh directory and writing key."
+mkdir -p $BUILD_DIR/.heroku/.ssh
+echo "$SSH_KEY" > $BUILD_DIR/.heroku/.ssh/id_rsa
+chmod 600 $BUILD_DIR/.heroku/.ssh/id_rsa
