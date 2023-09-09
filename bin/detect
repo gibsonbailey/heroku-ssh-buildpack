@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "SSH Buildpack"
+exit 0
